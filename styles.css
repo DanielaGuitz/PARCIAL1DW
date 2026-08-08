@@ -10,11 +10,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  /* Incluye padding y border DENTRO del width/height declarado,
-     así los elementos no "crecen" más de lo esperado. */
+ 
 }
 :root {
-  --color-primary: #dc3545;   /* mismo rojo que btn-danger de Bootstrap, para consistencia visual */
+  --color-primary: #dc3545;   
   --color-bg: #f8f9fa;
   --color-text: #212529;
   --spacing-sm: 0.5rem;
@@ -27,7 +26,6 @@ body {
   color: var(--color-text);
 }
 
-/* BEM: bloque para las cards que arma tu JS en #resultado */
 .pokemon-card {
   border-radius: var(--radius-md);
   transition: transform 0.15s ease-in-out;
