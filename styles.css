@@ -48,3 +48,18 @@ body {
 footer {
   background-color: var(--color-bg);
 }
+@media (min-width: 768px) {
+  .pokemon-card__title {
+    font-size: 1.25rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  main.container {
+    max-width: 960px;
+  }
+}
