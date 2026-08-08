@@ -184,12 +184,12 @@ $.ajax({
 ultimoPokemonBuscado = data;
 
 const tiposHtml = data.types.map(function (t) {
-return `<span class="badge bg-secondary me-1">${t.type.name}</span>`;
+return `<span class="badge bg-secondary me-1 pokemon-card__badge">${t.type.name}</span>`;
 }).join('');
 
   const cardHtml = `
     <div class="col">
-      <div class="card h-100 text-center">
+     <div class="card h-100 text-center pokemon-card">
         <img src="${data.sprites.front_default}" class="card-img-top mx-auto mt-3" style="width:120px;" alt="${data.name}">
         <div class="card-body">
           <h5 class="card-title text-capitalize">${data.name}</h5>
