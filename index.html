@@ -234,6 +234,45 @@ return `<span class="badge bg-secondary me-1">${t.type.name}</span>`;
     //
     //   new bootstrap.Modal(document.getElementById('modalDetalle')).show();
     // ==================================================================
+$   ('#resultado').on('click', '.btn-ver-detalle', function () {
+    if (!ultimoPokemonBuscado) return;
+    const p = ultimoPokemonBuscado;
+
+  $('#modalDetalleTitulo').text(p.name);
+  $('#modalDetalle-imagen').attr('src', p.sprites.front_default).attr('alt', p.name);
+  $('#modalDetalle-altura').text(p.height);
+    $('#modalDetalle-peso').text(p.weight);
+  $('#modalDetalle-stats').empty();
+  p.stats.slice(0, 3).forEach(function (s) {
+    $('#modalDetalle-stats').append(`<li>${s.stat.name}: ${s.base_stat}</li>`);
+    });
+  $('#modalDetalle-descripcion').text('Cargando descripción…');
+
+
+  new bootstrap.Modal(document.getElementById('modalDetalle')).show();
+
+  $.ajax({
+    url: p.species.url,
+    method: 'GET',
+    dataType: 'json'
+  })
+
+  .done(function (species) {
+    let entrada = species.flavor_text_entries.find(function (e) {
+      return e.language.name === 'es';
+    });
+    if (!entrada) {
+      entrada = species.flavor_text_entries.find(function (e) {
+        return e.language.name === 'en';
+      });
+    }
+    const texto = entrada ? entrada.flavor_text.replace(/\f|\n/g, ' ') : '';
+    $('#modalDetalle-descripcion').text(texto);
+  })
+      .fail(function () {
+    $('#modalDetalle-descripcion').text('');
+  });
+});
 
     // ==================================================================
     // TODO 3 (bonus) — AJAX encadenado.
