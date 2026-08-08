@@ -47,29 +47,4 @@ body {
 
 footer {
   background-color: var(--color-bg);
-}body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-}
-
-/* BEM: bloque para las cards que arma tu JS en #resultado */
-.pokemon-card {
-  border-radius: var(--radius-md);
-  transition: transform 0.15s ease-in-out;
-}
-
-.pokemon-card:hover {
-  transform: translateY(-4px);
-}
-
-.pokemon-card__badge {
-  text-transform: capitalize;
-}
-
-.pokemon-card__title {
-  font-weight: 700;
-}
-
-footer {
-  background-color: var(--color-bg);
 }
